@@ -1,4 +1,10 @@
-
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Yora Technologies
+    </ion-title>
+  </ion-navbar>
+</ion-header>
   <ion-thumbnail item-start>
       <img src="img/thumbnail-totoro.png">
     </ion-thumbnail>
@@ -11,10 +17,10 @@
     <ion-icon ios="ios-contact" md="md-contact" style="font-size:100px;"></ion-icon>
    </ion-list>
 <div padding>
- <button ion-button color="secondary" round>Login</button>
+ <button ion-button color="secondary"  (click)="goLogin()">Login</button>
 </div>
 <div padding>
-<button ion-button color="secondary" round>Registration </button>
+<button ion-button color="secondary"  (click)="goRegister()">Registration </button>
 </div>
 </table>
 </ion-content>

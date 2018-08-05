@@ -1,3 +1,10 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Yora Technologies
+    </ion-title>
+  </ion-navbar>
+</ion-header>
 <table border="10%" align="center">
   <ion-list>
      <ion-item>
@@ -14,6 +21,7 @@
   <ion-item >
  <ion-icon ios="ios-medkit" md="md-medkit" style="font-size:48px;"></ion-icon><label> Medicon</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  <ion-icon ios="ios-person" md="md-person" style="font-size:48px;"></ion-icon> <label> Doctor</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
  <ion-icon ios="ios-man" md="md-man" style="font-size:48px;" align="right :0px;"></ion-icon><label> Patient </label>
   </ion-item>
 
@@ -40,7 +48,7 @@
 </ion-list>
 
 <div padding>
-  <button ion-button color="secondary" >Register</button> <button ion-button> Back</button>
+  <button ion-button color="secondary" >Register</button> <button ion-button (click)="goSplash()"> Back</button>
 </div>
 
 </table>
