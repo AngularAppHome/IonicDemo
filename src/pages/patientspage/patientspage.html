@@ -1,0 +1,86 @@
+<ion-header>
+        <ion-navbar>
+          <ion-title>
+            Yora Technologies
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content padding>
+        <div>
+          <ion-buttons start>
+            <button ion-button icon-only>
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-segment [(ngModel)]="PatientsPage">
+            <ion-segment-button value="Finddoctor">
+              Finddoctor
+            </ion-segment-button>
+            <ion-segment-button value="History">
+              History
+            </ion-segment-button>
+            <ion-segment-button value="Reports">
+              Reports
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      
+        <div [ngSwitch]="PatientsPage">
+          <ion-list *ngSwitchCase="'Reports'">
+            <ion-item>
+              <h2>Onset: When did it start, was it constant/intermittent, gradual/ sudden?,
+                <br> Character: What is the pain like e.g. sharp, burning, tight?
+                <br> Radiation: Does it radiate/move anywhere?
+                <br> Associations: Is there anything else associated with the pain, e.g. sweating, vomiting.
+                <br> Time course: Does it follow any time pattern, how long did it last?
+                <br> Exacerbating / relieving factors: Does anything make it better or worse?
+                <br> Severity: How severe is the pain, consider using the 1-10 scale?
+                <br> The SOCRATES acronym can be used for any type of pain history.</h2>
+            </ion-item>
+          </ion-list>
+      
+          <ion-list *ngSwitchCase="'History'">
+            <ion-item>
+              <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+              <ion-list>
+                <ion-item *ngFor="let item of items">
+                  {{ item }}
+                </ion-item>
+              </ion-list>
+              <ion-thumbnail item-start>
+                <img src="D:/Ionic Mobile/IonicDemo/src/thumbnails">
+              </ion-thumbnail>
+              <div>
+                <button ion-button>Search</button>
+              </div>
+              <ion-col>Name: Yogesh Rajput
+                <br> Senior of
+                <br> Neurology
+                <br> Genitourinary/renal
+                <br> Musculoskeletal
+                <br> Psychiatry
+                <br>
+              </ion-col>
+            </ion-item>
+          </ion-list>
+      
+          <ion-list *ngSwitchCase="'Finddoctor'">
+            <ion-item>
+              <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+              <ion-list>
+                <ion-item *ngFor="let item of items">
+                  {{ item }}
+                </ion-item>
+              </ion-list>
+              <ion-thumbnail item-start>
+                <img src="D:/Ionic Mobile/IonicDemo/src/thumbnails">
+              </ion-thumbnail>
+              <div>
+                <button ion-button>Search</button>
+              </div>
+              <h2></h2>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-content>
