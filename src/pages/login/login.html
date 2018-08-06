@@ -14,9 +14,25 @@
                 <br>
                 <br>
          
-                <ion-icon ios="ios-person" md="md-person" name="Doctor" style="font-size:70px;"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <ion-icon ios="ios-woman" md="md-woman" style="font-size:70px;"></ion-icon>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <ion-icon ios="ios-medkit" md="md-medkit" style="font-size:70px;"></ion-icon>
+
+                <ion-list radio-group [(ngModel)]="logType">
+                  <ion-item>
+                    <ion-icon ios="ios-person" md="md-person" name="Doctor" style="font-size:40px;"></ion-icon>
+                    <ion-label>DOCTOR</ion-label>
+                    <ion-radio value="doc" checked></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon ios="ios-woman" md="md-woman" style="font-size:40px;"></ion-icon>
+                    <ion-label>PAITENT</ion-label>
+                    <ion-radio value="pat"></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-icon ios="ios-medkit" md="md-medkit" style="font-size:40px;"></ion-icon>
+                    <ion-label>MEDICAL</ion-label>
+                    <ion-radio value="med"></ion-radio>
+                  </ion-item>
+                </ion-list>
+
                 <br><br>
            
               <ion-item>
@@ -30,7 +46,7 @@
               </ion-item>
           </ion-list>
             <div>
-                <button ion-button >Login</button>
+                <button ion-button (click)="onLogin()">Login</button>
                 <button ion-button (click)="goSplash()"> Back</button>
             </div>
         </table>
