@@ -4,10 +4,10 @@ import { NavController } from 'ionic-angular';
 import { SplashPage } from '../splash/splash';
 
 @Component({
-  selector: 'page-doctor',
-  templateUrl: 'doctor.html'
+  selector: 'page-medical',
+  templateUrl: 'medical.html'
 })
-export class DoctorPage {
+export class MedicalPage {
 
   constructor(public navCtrl: NavController) {
 
