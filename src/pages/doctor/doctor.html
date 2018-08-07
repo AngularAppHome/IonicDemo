@@ -1,53 +1,101 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Menus
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
+        <ion-navbar>
+          <ion-title>
+            Yora Technologies
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content padding>
+        <div>
+          <ion-buttons start>
+            <button ion-button icon-only>
+              <ion-icon name="create"></ion-icon>
+            </button>
+          </ion-buttons>
+          <ion-segment [(ngModel)]="PatientsPage">
+            <ion-segment-button value="FindPatient">
+              FindPatient
+            </ion-segment-button>
+            <ion-segment-button value="History">
+              History
+            </ion-segment-button>
+            <ion-segment-button value="Reports">
+              Reports
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+      
+        <div [ngSwitch]="PatientsPage">
+          <ion-list *ngSwitchCase="'Reports'">
+            <ion-item>
+              <h2>John Devid</h2>
+              <ion-item>
+              <h4>RelationShip:self</h4>
+              </ion-item>
+                <ion-item>
+              <h4>SampleId:1233</h4>
+              </ion-item>
+                <ion-item>
+              <h4>SampleTaken Date:Dec 19,2018</h4>
+              </ion-item>
+                <ion-item>
+              <h4> StatusReport:compleated</h4>
+              </ion-item>
 
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle icon-only>
-      <ion-icon name='menu'></ion-icon>
-    </button>
-    <ion-title>
-      Doctor Form
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding>
-  <button ion-button block menuToggle>Toggle Menu</button>
-</ion-content>
-
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-list>
-      <button ion-item (click)="openPage(patientPage)">
-        Find Patient
-      </button>
-      <button ion-item (click)="openPage(historyPage)">
-        Patient History
-      </button>
-      <button ion-item (click)="openPage(repotsPage)">
-        Reports
-      </button>
-      <button ion-item (click)="closeMenu()">
-        Close Menu
-      </button>
-    </ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-nav id="nav" #content [root]="rootPage"></ion-nav>
+            </ion-item>
+          </ion-list>
+      
+          <ion-list *ngSwitchCase="'History'">
+            <ion-item>
+           
+             <div class="example-form">
+       <div>
+        <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
+          <span class="button-inner">
+       <ion-icon ios="ios-medkit" md="md-medkit"></ion-icon> Medical Conditions </span><div class="button-effect" ></div></button></div>
+       
+        <div>
+        <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
+          <span class="button-inner">
+       <ion-icon ios="ios-skip-backward" md="md-skip-backward"></ion-icon> Previous Procedures </span><div class="button-effect"></div></button></div>
+       <div>
+        <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
+          <span class="button-inner" >
+       <ion-icon ios="ios-medkit" md="md-medkit"></ion-icon> Allergies </span><div class="button-effect"></div></button></div>
+        <div>
+        <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
+          <span class="button-inner">
+         <ion-icon ios="ios-pulse" md="md-pulse"></ion-icon> Medication </span><div class="button-effect"></div></button></div>
+        <div>
+        <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
+          <span class="button-inner">
+       <ion-icon ios="ios-medkit" md="md-medkit"></ion-icon> Immunization Record </span><div class="button-effect"></div></button> </div>
+        <div>
+        <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
+          <span class="button-inner">
+         <ion-icon ios="ios-people" md="md-people"></ion-icon> Family History </span><div class="button-effect"></div></button> </div>
+         </div>
+            </ion-item>
+          </ion-list>
+        
+          <ion-list *ngSwitchCase="'FindPatient'">
+            <ion-item>
+              <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+              <ion-list>
+                <ion-item *ngFor="let item of items">
+                  {{ item }}
+                </ion-item>
+              </ion-list>
+              <ion-thumbnail item-start>
+                <img src="D:/Ionic Mobile/IonicDemo/src/thumbnails">
+              </ion-thumbnail>
+              <div>
+                <button ion-button>Search</button>
+              </div>
+              <h2></h2>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ion-content>
+      
