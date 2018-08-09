@@ -12,6 +12,7 @@ import { SplashPage } from '../pages/splash/splash';
 import { MedicalPage } from '../pages/medicalpage/medical';
 import { DoctorPage } from '../pages/doctor/doctor';
 import { PatientPage } from '../pages/patient/patient';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PatientPage } from '../pages/patient/patient';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule ,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
