@@ -69,17 +69,10 @@
             <ion-item>
               <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
               <ion-list>
-                <ion-item *ngFor="let item of items">
-                  {{ item }}
-                </ion-item>
+                <button ion-item *ngFor="let patient of patientList" >
+                  {{ patient.name }} - {{ patient.phone }}
+                </button>  
               </ion-list>
-              <ion-thumbnail item-start>
-                <img src="D:/Ionic Mobile/IonicDemo/src/thumbnails">
-              </ion-thumbnail>
-              <div>
-                <button ion-button>Search</button>
-              </div>
-              <h2></h2>
             </ion-item>
           </ion-list>
         </div>
