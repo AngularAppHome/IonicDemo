@@ -8,11 +8,7 @@
       
       <ion-content padding>
         <div>
-          <ion-buttons start>
-            <button ion-button icon-only>
-              <ion-icon name="create"></ion-icon>
-            </button>
-          </ion-buttons>
+          
           <ion-segment [(ngModel)]="PatientsPage">
             <ion-segment-button value="FindPatient">
               FindPatient
@@ -79,23 +75,17 @@
             </ion-item>
           </ion-list>
         
+          
           <ion-list *ngSwitchCase="'FindPatient'">
             <ion-item>
               <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
               <ion-list>
-                <ion-item *ngFor="let item of items">
-                  {{ item }}
-                </ion-item>
+                <button ion-item *ngFor="let patient of patientList" (click)="openDialog({})" >
+                  {{ patient.name }} - {{ patient.phone }}
+                 
+                </button>  
               </ion-list>
-              <ion-thumbnail item-start>
-                <img src="D:/Ionic Mobile/IonicDemo/src/thumbnails">
-              </ion-thumbnail>
-              <div>
-                <button ion-button>Search</button>
-              </div>
-              <h2></h2>
             </ion-item>
           </ion-list>
         </div>
       </ion-content>
-      
