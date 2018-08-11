@@ -1,66 +1,63 @@
 
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SplashPage } from '../splash/splash';
 import { PatientService } from '../../app/patient.service';
-import { ActionSheetController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 
 
 @Component({
   selector: 'page-patient',
   templateUrl: 'patient.html',
-  providers:[PatientService]
+  providers: [PatientService]
 })
-export class PatientPage  implements OnInit {
+export class PatientPage implements OnInit {
   patientList
-  constructor(public navCtrl: NavController,private patientSvc :PatientService,public actionSheetCtrl: ActionSheetController) {
-    
+  constructor(public navCtrl: NavController, private patientSvc: PatientService, public alertCtrl: AlertController) {
+
   }
   ngOnInit() {
     //this.doctors=[{name:"Yogesh"},{name:"Gopi"},{name:"Seshu"}]
     this.patientSvc.getPatients().subscribe(data => this.patientList = data);;
   }
   opendialog() {
-    const actionSheet = this.actionSheetCtrl.create({
+    const prompt = this.alertCtrl.create({
       buttons: [
         {
           text: 'Authentication Patient',
-          role: 'Authentication Patient',
-          handler: () => {
+          handler: data => {
+
+
+
+
             console.log('Authentication Patient clicked');
           }
-        },{
+        },
+        {
           text: 'Medical Billing',
-          role: 'Medical Billing',
-          handler: () => {
+          handler: data => {
             console.log('Medical Billing clicked');
           }
-        },{
+        },
+        {
           text: 'History',
-          role: 'History',
-          handler: () => {
+          handler: data => {
             console.log('History clicked');
           }
-        },{
+        },
+        {
           text: 'Reports',
-          role: 'Reports',
-          handler: () => {
+          handler: data => {
             console.log('Reports clicked');
-          }
-        },{
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
           }
         }
       ]
     });
-    actionSheet.present();
+    prompt.present();
   }
-  
-  goSplash(){
+
+  goSplash() {
     this.navCtrl.push(SplashPage);
   }
 }
