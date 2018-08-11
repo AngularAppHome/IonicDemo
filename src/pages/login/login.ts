@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SplashPage } from '../splash/splash';
-import { DoctorPage } from '../doctor/doctor';
+import { DoctorPage } from '../doctorpage/doctor';
 import { MedicalPage } from '../medicalpage/medical';
 import { PatientPage } from '../patient/patient';
 

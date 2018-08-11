@@ -10,7 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/registerpage/register';
 import { SplashPage } from '../pages/splash/splash';
 import { MedicalPage } from '../pages/medicalpage/medical';
-import { DoctorPage } from '../pages/doctor/doctor';
+import { DoctorPage } from '../pages/doctorpage/doctor';
 import { PatientPage } from '../pages/patient/patient';
 import { HttpClientModule } from '@angular/common/http';
 
