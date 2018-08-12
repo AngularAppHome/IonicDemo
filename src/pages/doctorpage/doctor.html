@@ -1,14 +1,13 @@
-<ion-header>
+      <ion-header>
         <ion-navbar>
           <ion-title>
             Yora Technologies
           </ion-title>
         </ion-navbar>
       </ion-header>
-      
-      <ion-content padding>
+       <ion-content padding>        
         <div>
-          
+           <table style="width:30%" border="0%" align="center">
           <ion-segment [(ngModel)]="PatientsPage">
             <ion-segment-button value="FindPatient">
               FindPatient
@@ -20,9 +19,11 @@
               Reports
             </ion-segment-button>
           </ion-segment>
+          </table>
         </div>
       
         <div [ngSwitch]="PatientsPage">
+           <table style="width:30%" border="0%" align="center">
           <ion-list *ngSwitchCase="'Reports'">
             <ion-item>
               <h2>John Devid</h2>
@@ -43,14 +44,12 @@
           </ion-list>
       
           <ion-list *ngSwitchCase="'History'">
-            <ion-item>
-           
+            <ion-item>           
              <div class="example-form">
        <div>
         <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
           <span class="button-inner">
-       <ion-icon ios="ios-medkit" md="md-medkit"></ion-icon> Medical Conditions </span><div class="button-effect" ></div></button></div>
-       
+       <ion-icon ios="ios-medkit" md="md-medkit"></ion-icon> Medical Conditions </span><div class="button-effect" ></div></button></div>       
         <div>
         <button icon-start="" ion-button="" outline="" class="disable-hover button button-ios button-outline button-outline-ios" class="example-form1">
           <span class="button-inner">
@@ -73,19 +72,48 @@
          <ion-icon ios="ios-people" md="md-people"></ion-icon> Family History </span><div class="button-effect"></div></button> </div>
          </div>
             </ion-item>
-          </ion-list>
-        
+          </ion-list>    
           
           <ion-list *ngSwitchCase="'FindPatient'">
             <ion-item>
               <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
               <ion-list>
                 <button ion-item *ngFor="let patient of patientList" (click)="openDialog({})" >
-                  {{ patient.name }} - {{ patient.phone }}
-                 
+                  {{ patient.name }} - {{ patient.phone }}                 
                 </button>  
               </ion-list>
             </ion-item>
           </ion-list>
-        </div>
-      </ion-content>
+           </table>
+        </div>       
+<ion-content padding>
+  <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>  
+  </ion-content>
+  <ion-menu  [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <button ion-item (click)="openPage(homePage)">
+        Home
+      </button>
+      <button ion-item (click)="openPage(friendsPage)">
+        Friends
+      </button>
+      <button ion-item (click)="openPage(eventsPage)">
+        Events
+      </button>
+      <button ion-item (click)="closeMenu()">
+        Close Menu
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav id="nav" #content [root]="rootPage"></ion-nav>        
+</ion-content>

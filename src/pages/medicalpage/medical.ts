@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { SplashPage } from '../splash/splash';
 import { MedicalService } from '../../app/medical.service';
 import { AlertController } from 'ionic-angular';
+import { MenuController } from 'ionic-angular';
 @Component({
   selector: 'page-medical',
   templateUrl: 'medical.html',
@@ -11,8 +12,15 @@ import { AlertController } from 'ionic-angular';
 })
 export class MedicalPage {
   medicalList
-  constructor(public navCtrl: NavController,private medicalSvc :MedicalService,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController,private medicalSvc :MedicalService,public alertCtrl: AlertController,public menuCtrl: MenuController) {
       }
+       openPage() {
+   this.menuCtrl.open();
+   
+ }
+  closeMenu() {
+   this.menuCtrl.close();
+ }
       ngOnInit() {
         this.medicalSvc.getMedicals().subscribe(data => this.medicalList = data);;
   }
