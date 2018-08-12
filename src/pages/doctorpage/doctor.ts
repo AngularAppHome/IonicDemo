@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import { SplashPage } from '../splash/splash';
 import { DoctorService } from '../../app/doctor.service';
 import { AlertController } from 'ionic-angular';
-
+import { MenuController } from 'ionic-angular';
 
 @Component({
   selector: 'page-doctor',
@@ -13,48 +13,26 @@ import { AlertController } from 'ionic-angular';
 })
 export class DoctorPage implements OnInit {
   patientList
-
-  constructor(public navCtrl: NavController,private doctorSvc : DoctorService,public alertCtrl: AlertController) {
-
+  constructor(public navCtrl: NavController,private doctorSvc : DoctorService,public alertCtrl: AlertController,public menuCtrl: MenuController) {
   }
+   openPage() {
+   this.menuCtrl.open();
+   
+ }
+  closeMenu() {
+   this.menuCtrl.close();
+ }
+
   ngOnInit() {
     //this.doctors=[{name:"Yogesh"},{name:"Gopi"},{name:"Seshu"}]
     this.doctorSvc.getDoctors().subscribe(data => this.patientList = data);;
   }
    openDialog () {
     const alert = this.alertCtrl.create({
-    //    inputs : [
-    //  {
-    //    type:'button',
-      
-    //      value:'AuthenticationPatient',
-    //       handler: data => {
-    //      console.log("Reports clicked");
-    //       }
-    //  },
-    //  {
-    //    type:'button',
-    //    value:'Medicin Billing'
-    
-    //   },
-    //   {
-    //      type:'button',
-    //    value:'History'
-    //   },
-    //   {
-    //      type:'button',
-    //    value:'Reports'
-    //   }
-
-    // ],
     buttons : [
-     {
-      
+     {      
        text: "AuthenticationPatient",
-       handler: data => {
-         
-          
-          
+       handler: data => {                     
          console.log("AuthenticationPatient clicked");
        }
      },
@@ -64,8 +42,7 @@ export class DoctorPage implements OnInit {
          console.log("Medicin Billing clicked");
        }
      },
-      {
-       
+      {       
        text: "History",
        handler: data => {
          console.log("History clicked");
@@ -79,12 +56,10 @@ export class DoctorPage implements OnInit {
        }
      }
 
-    ]
-
-      
+    ] 
       
     });
-    alert.present();
+    alert.present();    
   }
   goSplash(){
     this.navCtrl.push(SplashPage);
